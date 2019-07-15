@@ -133,14 +133,6 @@ def processform1(id, request):  # processing form1
             
     return errors, form1
 
-
-# def form2(form):
-#     form2 = {
-#         'startTime': form.get('starttime'),
-#         'endTime': form.get('endtime'),
-#         'inputs': form.getList('input')
-#     }
-
             
 def processform2(id):  # processing form2
     errors = []  # creating an empty list for the errors
