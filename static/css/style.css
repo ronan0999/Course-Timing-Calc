@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    font-family: Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+}
+
+header {
+    background-color: #003D79;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+
+.modules {
+    /*margin-top: 10px;*/
+    background-color: white;
+    border: 1px solid black;
+    margin: auto;
+    padding: 20px;
+}
+
+.schedule {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    margin: auto;
+}
+
+.schedule td, .schedule th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.durations input {
+    width: 20%;
+}
+
+.default {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 220px;
+    margin-right: 220px;
+    background-color: #89CBDF;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.default input {
+    margin-right: 5px;
+}
+
+#defaultDuration, #lunchDuration {
+    width: 5%;
+}
+
+#home:link {
+    color: white;
+}
+
+#home:visited {
+    color: white;
+}
+
+#home:hover {
+    text-decoration: none;
+}
+
+button {
+    background-color: #0065AB; /* blue */
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 10%;
+    font-size: 14px;
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+button:hover {
+    background-color: #004D8A;
+}
+
+input {
+    padding: 8px;
+}
+
+#title {
+    background-color: #60B515;
+    /*color: white;*/
+}
+
+#day {
+    background-color: #A9B6BE;
+}
+
+#lunch {
+    background-color: #D9E4EA;
+}
+
+#lesson {
+    background-color: #AADB1E;
+}
+
+h4 {
+    color: #A32100;
+    margin-top: 10px;
+}
+
+.id {
+    text-align: center;
+    margin-bottom: 10px;
+}
