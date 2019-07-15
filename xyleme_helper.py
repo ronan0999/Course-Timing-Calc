@@ -1,3 +1,4 @@
+# Author: Stephen Carter / stephendotcarter
 import os
 import requests
 import logging
