@@ -50,8 +50,24 @@ This tool estimates how long a course will take to teach to students. It automat
     ```
     
   - To run the application:
+    - In Pycharm terminal:
+      - For Production mode:
+
+        ```
+
+        set XYLEME_API=https://vmware.xyleme.com
+        set XYLEME_MEDIA=https://sps-eu.xyleme.com/vmware
       
-    In Pycharm terminal:
+        ```
+      
+      - For Testing mode:
+
+        ```
+
+        set XYLEME_API=http://127.0.0.1:9999
+        set XYLEME_MEDIA=http://127.0.0.1:9999
+
+        ```
         
       ```
         
@@ -59,5 +75,3 @@ This tool estimates how long a course will take to teach to students. It automat
         
       ```
         
-        
-    
