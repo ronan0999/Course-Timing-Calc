@@ -1,15 +1,14 @@
-import pymongo, flask, datetime, xmltodict, json
-# import pprint
+# Author: Ronan Roche / ronan0999
+
+import pymongo, flask, datetime, xmltodict, os
 from datetime import timedelta, datetime
 from flask import Flask, request, render_template, url_for, redirect
 from bson.objectid import ObjectId
-
 import xyleme_helper
 from xyleme_helper import *
 
 
 app = Flask(__name__)
-
 
 # making a connection to the db
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")  # connection url
@@ -19,7 +18,7 @@ mycol = mydb['modules'] # choosing a collection
 # setting defaults
 defaultDuration = 5
 startTime = '09:00'
-endTime ='17:00'
+endTime = '17:00'
 lunchTime = '12:00'
 lunchduration = 45
 
@@ -27,7 +26,7 @@ lunchduration = 45
 # HOMEPAGE
 @app.route("/", methods=["GET", "POST"])
 def root():
-    errors = []  # creating an empty lis tto store error messages
+    errors = []  # creating an empty list to store error messages
     if request.method == 'POST':  # checking what type of request it is
         guid = request.form.get('guid')  # getting the guid from the user's input
         
@@ -72,7 +71,7 @@ def topics(id):
             
         # otherwise there are no errors
         mycol.update_one({'_id': ObjectId(id)}, {'$set': {'defaultDuration': defaultDuration, 'startTime': startTime, 'endTime': endTime, 'lunchTime': lunchTime,
-                                                      'lunchDuration': lunchduration}})  # update the db with the defaut values
+                                                      'lunchDuration': lunchduration}})  # update the db with the default values
         
         data = mycol.find_one({'_id': ObjectId(id)})  # getting the whole document from the db
     
@@ -123,7 +122,7 @@ def processform1(id, request):  # processing form1
         if form1['defaultDuration'] == 0:  # this means that a schedule already exists
             updatedb(form1['startTime'], form1['endTime'], form1['lunchTime'], form1['lunchDuration'], id)  # updating the db with the new values
         else:  # otherwise we create a brand new schedule
-            durations  = []
+            durations = []
             numTopics = countTopics(id)  # counting the number of topics that will have a duration
             
             for i in range(numTopics):
@@ -137,8 +136,6 @@ def processform1(id, request):  # processing form1
 def processform2(id):  # processing form2
     errors = []  # creating an empty list for the errors
     data = mycol.find_one({'_id': ObjectId(id)})
-    # start = data['startTime']
-    # end = data['endTime']
     
     maxDuration = calcMaxDuration(data['startTime'], data['endTime'])  # calculating the max duration
     
@@ -259,6 +256,8 @@ def getModule(guid):  # get a module from Xyleme
     ssp_guid = guid
     ssp = xh.get_ssp_raw(ssp_guid)
     
+    # if os.environ['XYLEME_API'] == 'http://127.0.0.1:6666':
+    
     return ssp
 
 
@@ -272,7 +271,6 @@ def createDict(module):
     convertedModule = convertToDict(module)
 
     finaldict = []  # creating an empty list
-    lessonDict = {}  # creating an empty dictionary
 
     name = convertedModule['IA']['CoverPage']['Title']  # getting the name of a module
     

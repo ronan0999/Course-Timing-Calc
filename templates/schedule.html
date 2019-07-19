@@ -1,3 +1,5 @@
+<!-- Author: Ronan Roche / ronan0999 -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,9 +40,6 @@
                 {% set ns = namespace(day=0) %}  <!-- namespace allows you to carry a var to an outer loop -->
                 {% set ns2 = namespace(count=0) %}
                 <table class="schedule">
-                    <!--<tr>
-                        <th colspan="4" id="title">{{data['name']}}</th>
-                    </tr>-->
                     {% for course in data['course'] %}
                         <tr>
                             <th colspan="4" id="title">{{course['title']}}</th>
