@@ -50,7 +50,6 @@ This tool estimates how long a course will take to teach to students. It automat
     ```
     
   - To run the application:
-    - In Pycharm terminal:
       - For Production mode:
 
         ```
